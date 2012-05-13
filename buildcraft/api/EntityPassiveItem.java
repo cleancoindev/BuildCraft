@@ -105,6 +105,13 @@ public class EntityPassiveItem
         }
         if (!APIProxy.isClient(this.worldObj))
         {
+            // Mae start
+            if (this.isCorrupted()) {
+                this.remove();
+                return null;
+            }
+            // Mae end
+        
             Position var2 = new Position(0.0D, 0.0D, 0.0D, var1);
             var2.moveForwards(0.1D + (double)(this.speed * 2.0F));
             EntityItem var3 = new EntityItem(this.worldObj, this.posX, this.posY, this.posZ, this.item);
