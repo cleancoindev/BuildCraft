@@ -88,6 +88,11 @@ public abstract class Engine
         if (this.getEnergyStage() == Engine.EnergyStage.Explosion)
         {
             this.tile.world.explode((Entity)null, (double)this.tile.x, (double)this.tile.y, (double)this.tile.z, (float)this.explosionRange());
+            // Mae start
+            if (net.minecraft.server.BuildCraftEnergy.removeExplodedEngines) {
+            	this.tile.world.setTypeId(this.tile.x, this.tile.y, this.tile.z, 0);
+            }
+            // Mae end
         }
 
         if (this.energy > this.maxEnergy)

@@ -35,6 +35,7 @@ public class BuildCraftEnergy
     public static Item fuel;
     public static TreeMap saturationStored = new TreeMap();
     private static boolean initialized = false;
+    public static boolean removeExplodedEngines = false; // Mae
 
     public static void load()
     {
@@ -53,6 +54,13 @@ public class BuildCraftEnergy
             Property var3 = BuildCraftCore.mainConfiguration.getOrCreateIntProperty("bucketOil.id", "item", DefaultProps.BUCKET_OIL_ID);
             Property var4 = BuildCraftCore.mainConfiguration.getOrCreateIntProperty("bucketFuel.id", "item", DefaultProps.BUCKET_FUEL_ID);
             Property var5 = BuildCraftCore.mainConfiguration.getOrCreateIntProperty("fuel.id", "item", DefaultProps.FUEL_ID);
+
+            // Mae start
+            Property prop = BuildCraftCore.mainConfiguration.getOrCreateBooleanProperty("engine.removeonexplode", "general", false);
+            prop.comment = "If enabled, exploding engines will always be removed, even if the explosion is prevented by a plugin.";
+            removeExplodedEngines = Boolean.parseBoolean(prop.value);
+            // Mae end
+
             BuildCraftCore.mainConfiguration.save();
             engineBlock = new BlockEngine(Integer.parseInt(var0.value));
             ModLoader.registerBlock(engineBlock);
