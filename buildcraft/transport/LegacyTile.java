@@ -14,7 +14,13 @@ public class LegacyTile extends TileEntity
     {
         int var1 = this.world.getData(this.x, this.y, this.z);
         int var2 = ((LegacyBlock)Block.byId[this.world.getTypeId(this.x, this.y, this.z)]).newPipeId;
-        BlockGenericPipe.createPipe(this.world, this.x, this.y, this.z, var2);
+        // Mae start
+        //BlockGenericPipe.createPipe(this.world, this.x, this.y, this.z, var2);
+        Pipe pipe = BlockGenericPipe.createPipe(this.world, this.x, this.y, this.z, var2);
+        if (pipe == null) {
+            System.err.println("[BuildCraft] Pipe failed to load from legacy block at "+this.x+","+this.y+","+this.z);
+        }
+        // Mae end
         this.world.setTypeIdAndData(this.x, this.y, this.z, BuildCraftTransport.genericPipeBlock.id, var1);
     }
 }

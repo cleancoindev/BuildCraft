@@ -435,9 +435,14 @@ public class BlockGenericPipe extends BlockContainer implements IPipeConnection,
         }
         catch (Throwable var2)
         {
-            Pipe pipe = (Pipe)pipes.get(Integer.valueOf(var0));
-            System.out.println("[BuildCraft] Error creating pipe type " + var0 + " (class=" + pipe + ")");
-            //var2.printStackTrace();
+            try {
+                Pipe pipe = (Pipe)pipes.get(Integer.valueOf(var0));
+                System.out.println("[BuildCraft] Error creating pipe type " + var0 + " (class=" + pipe + ")");
+                //var2.printStackTrace();
+            } catch (Throwable t) {
+                /* Well nuts. */
+                System.out.println("[BuildCraft] Error creating pipe type " + var0);
+            }
             return null;
         }
     }

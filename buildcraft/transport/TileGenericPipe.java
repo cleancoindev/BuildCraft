@@ -62,7 +62,11 @@ public class TileGenericPipe extends TileEntity implements IPowerReceptor, ILiqu
             this.pipe.setTile(this);
             this.pipe.readFromNBT(var1);
         }
-
+        // Mae start
+        else {
+            System.err.println("[BuildCraft] Pipe failed to load from NBT at "+this.x+","+this.y+","+this.z);
+        }
+        // Mae end
     }
 
     // CraftBukkit start
@@ -326,6 +330,11 @@ public class TileGenericPipe extends TileEntity implements IPowerReceptor, ILiqu
             {
                 this.pipe.initialize();
             }
+            // Mae start
+            else {
+                System.err.println("[BuildCraft] Pipe failed to load from description packet at "+this.x+","+this.y+","+this.z);
+            }
+            // Mae end
         }
     }
 

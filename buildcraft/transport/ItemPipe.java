@@ -77,7 +77,11 @@ public class ItemPipe extends Item implements ITextureProvider
             // CraftBukkit Mae - Paraphrased from ItemBlock
             CraftBlockState replacedBlockState = CraftBlockState.getBlockState(var3, var4, var5, var6);
 
-            BlockGenericPipe.createPipe(var3, var4, var5, var6, this.id);
+            Pipe pipe = BlockGenericPipe.createPipe(var3, var4, var5, var6, this.id);
+            if (pipe == null) {
+                System.err.println("[BuildCraft] Pipe failed to create during placement at "+var4+","+var5+","+var6);
+                return true;
+            }
 
             if (var3.setRawTypeIdAndData(var4, var5, var6, var8, 0))
             {
