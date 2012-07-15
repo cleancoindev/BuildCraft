@@ -1,3 +1,10 @@
+/*
+ * This file is not part of the original BuildCraft source; it was written
+ * entirely by Maeyanie for BuildCraft for Bukkit.
+ * It is released under WTFPL.
+ * See https://secure.wikimedia.org/wikipedia/en/wiki/WTFPL for details.
+ */
+
 package buildcraft.core;
 
 import net.minecraft.server.*;
