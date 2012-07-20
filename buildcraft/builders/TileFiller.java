@@ -118,10 +118,10 @@ public class TileFiller extends TileBuildCraft implements ISpecialInventory, IPo
     {
         if (!APIProxy.isClient(this.world))
         {
-            if (this.powerProvider.useEnergy(25, 25, true) >= 25)
-            {
-                if (this.box.isInitialized() && this.currentPattern != null && !this.done)
-                {
+			if (this.box.isInitialized() && this.currentPattern != null && !this.done)
+			{
+				if (this.powerProvider.useEnergy(25, 25, true) >= 25)
+				{
                     ItemStack var1 = null;
                     int var2 = 0;
 
@@ -147,11 +147,10 @@ public class TileFiller extends TileBuildCraft implements ISpecialInventory, IPo
                         this.world.k(this.x, this.y, this.z);
                         this.sendNetworkUpdate();
                     }
-                }
-
-                if (this.powerProvider.energyStored > 25)
-                {
-                    this.doWork();
+					else if (this.powerProvider.energyStored > 25)
+					{
+						this.doWork();
+					}
                 }
             }
         }
